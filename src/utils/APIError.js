@@ -5,7 +5,7 @@ class APIError extends Error{
         statusCode,
         message='Something went wrong',        //default msg
         errors=[],                             // pass multiple error
-        statck=""                                //error stack
+        stack=""                                //error stack
     ){
         super(message)
         this.statusCode=statusCode,
@@ -17,8 +17,8 @@ class APIError extends Error{
 
         // for providing stack trace it gives info like in which file error occer
 
-        if(statck){
-            this.stack=statck
+        if(stack){
+            this.stack=stack
         }else{
             Error.captureStackTrace(this,this.constructor)
         }

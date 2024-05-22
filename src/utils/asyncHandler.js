@@ -1,9 +1,9 @@
 //Higher order functions functions that take func as a parameter or return
-
+//handling request and sending promises
 //***************using Promise*********************
 
 const asyncHandler =(requestHandler)=>{
-    (req,res,next)=>{
+    return (req,res,next)=>{
         Promise.resolve(requestHandler(req,res,next))
         .catch((err)=>{next(err)})
     }
