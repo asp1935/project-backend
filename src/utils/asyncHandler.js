@@ -2,14 +2,22 @@
 //handling request and sending promises
 //***************using Promise*********************
 
-const asyncHandler =(requestHandler)=>{
-    return (req,res,next)=>{
-        Promise.resolve(requestHandler(req,res,next))
-        .catch((err)=>{next(err)})
-    }
-}
+// const asyncHandler =(requestHandler)=>{
+//     return (req,res,next)=>{
+//         Promise.resolve(requestHandler(req,res,next))
+//         .catch((err)=>{next(err)})
+//     }
+// }
 
-export {asyncHandler }
+// export {asyncHandler }
+
+
+
+const asyncHandler = fn => (req, res, next) =>
+    fn(req, res, next).catch(next);
+  
+  export { asyncHandler };
+  
 
 
 

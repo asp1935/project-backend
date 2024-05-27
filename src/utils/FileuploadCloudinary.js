@@ -1,5 +1,4 @@
-import { compareSync } from 'bcrypt';
-import { v2 as cloudinary } from cloudinary
+import { v2 as cloudinary } from 'cloudinary'
 import fs from 'fs'            //file system
 
 
@@ -20,6 +19,8 @@ const uploadOnCloudinary = async (loaclFilePath) => {
         })
         //file has been uploaded succcessfull
         console.log('File uploaded successfully', responce.url);
+        // console.log(responce);
+        fs.unlinkSync(loaclFilePath)
         return responce;
     } catch (error) {
         //unlinkSync method execue compulsory
